@@ -142,7 +142,7 @@ src/main/java/com/cesde/pi
 
 ### 1. Crear estudiante (POST)
 - **Método**: `POST`
-- **URL**: `http://localhots:8080/api/students`
+- **URL**: `http://localhost:8080/api/students`
 - **Cuerpo de la petición**: 
 ```json
 
@@ -176,7 +176,7 @@ src/main/java/com/cesde/pi
 
 ### 2. Obtener lista completa (GET)
 - **Método**: `GET`
-- **URL**: `http://localhots:8080/api/students`
+- **URL**: `http://localhost:8080/api/students`
 - **Cuerpo de la petición**: Sin Body
 ```json
 
@@ -234,7 +234,8 @@ src/main/java/com/cesde/pi
 	"firstName": "Ana",
     "lastName": "Garcia",
     "email": "Ana.garcia@estudiante.com",
-    "birthDate": "2001-03-1",
+    "birthDate": "2001-03-12",
+    "id": 1, 
     "phone": "3004445566"
        
     
@@ -255,7 +256,7 @@ src/main/java/com/cesde/pi
     "firstName": "Ana",
     "lastName": "Garcia",
     "email": "Ana.garcia@estudiante.com",
-    "birthDate": "2001-03-1",
+    "birthDate": "2001-03-12",
     "id": 1,
     "phone": "3004445566"
 }
@@ -270,40 +271,42 @@ src/main/java/com/cesde/pi
         "firstName": "Ana Actualizado",
         "lastName": "Garcia",
         "email": "Ana.garcia@estudiante.com",
-        "birthDate": "2001-03-1",
-        "id": 1,
+        "birthDate": "2001-03-12",
         "phone": "3004445566"
     }
 ```
 - **Código de estado**: `200 OK`
 - **Respuesta del servidor**:
 ```json
+    
     {
-    "firstName": "David Actualizado",
-    "lastName": "Martinez",
-    "email": "David.ortiz@example.com",
-    "birthDate": "1993-05-22",
-    "id": 5,
-    "phone": "3235622409"
+       "firstName": "Ana Actualizado",
+       "lastName": "Garcia",
+       "email": "Ana.garcia@estudiante.com",
+       "birthDate": "2001-03-12",
+       "id": 1,
+       "phone": "3004445566"
 }
+
 ```
 
 ### 6.Escenario de error: Buscar ID inexistente (GET)
 - **Método**: `GET`
-- **URL**: `http:localhost:8080/api/students/999`
-- **Cuerpo de la petición**: Sin body
-```json
-
-```
-- **Código de estado**: `404 Not Found`
+- **URL**: `http://localhost:8080/api/students/999`
+- **Cuerpo de la petición**: Sin body  
+- **Código de estado**: `404 Not Found`  
 - **Respuesta del servidor**:
-```json
 
+```json
+{
+  "message": "Student not found with id 999",
+  "status": 404
+}
 ```
 
 ### 7. Eliminar registro (DELETE)
 - **Método**: `DELETE`
-- **URL**: `http:localhost:8080/api/students/4`
+- **URL**: `http://localhost:8080/api/students/1`
 - **Cuerpo de la petición**: Sin Body
 ```json
 
